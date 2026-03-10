@@ -17,7 +17,7 @@
   <link rel="apple-touch-startup-image" href="assets/splash-640x1136.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="home">
+<body data-page="calendar">
   <div id="authView" class="screen">
     <section class="panel auth-panel">
       <div class="auth-photo" aria-hidden="true"></div>
@@ -88,62 +88,25 @@
         <div class="status-line dim">Auto-save is on.</div>
       </div>
     </section>
-
     <main class="main-grid">
       <section class="panel wide">
-        <div class="section-head">
-          <h2>Plan Overview</h2>
-        </div>
-        <div class="form-grid">
-          <div><label>Parent / Guardian</label><input id="parentName" type="text" value="Angel Letner"></div>
-          <div><label>Support Person</label><input id="supportName" type="text" value="Joseph Thomas Butcher"></div>
-          <div><label>Board ID</label><input id="boardId" type="text" value="angel-jt-family-board"></div>
-          <div><label>30-Day Review Date</label><input id="reviewDate" type="date"></div>
-          <div class="span-2"><label>Main Goal</label><textarea id="agreement">Maintain stability, complete recommended services, track progress, and support consistent routines in the home while documenting follow-through.</textarea></div>
-        </div>
-      </section>
-
-      <section class="panel third">
-        <h2>Progress</h2>
-        <div class="metric">
-          <div class="metric-head"><span>Service Steps</span><strong id="servicePercentLabel">0%</strong></div>
-          <div class="meter"><div id="serviceBar" class="fill fill-green"></div></div>
-        </div>
-        <div class="metric">
-          <div class="metric-head"><span>Routine Completion</span><strong id="routinePercentLabel">0%</strong></div>
-          <div class="meter"><div id="routineBar" class="fill fill-blue"></div></div>
-        </div>
-        <div class="metric">
-          <div class="metric-head"><span>Weekly Stability</span><strong id="stabilityScoreLabel">0/100</strong></div>
-          <div class="meter"><div id="stabilityBar" class="fill fill-amber"></div></div>
-        </div>
-        <div class="metric-head"><span>Missed Items</span><strong id="missedCountLabel">0</strong></div>
-      </section>
-
-      <section class="panel third">
-        <h2>Notifications</h2>
-        <div class="check-grid">
-          <label><input id="notifMissed" type="checkbox" checked> Missed tasks</label>
-          <label><input id="notifCompleted" type="checkbox" checked> Completed tasks</label>
-          <label><input id="notifAppointments" type="checkbox" checked> Appointments made</label>
-          <label><input id="notifGoals" type="checkbox" checked> New parenting goals</label>
-          <label><input id="notifNotes" type="checkbox" checked> New notes</label>
-        </div>
-      </section>
-
-      <section class="panel third">
-        <h2>Quick Actions</h2>
-        <div class="stack">
-          <button id="resetWeekBtn" class="action">Reset Weekly Routine</button>
-          <button id="addGoalBtn" class="action">Add Parenting Goal</button>
-          <button id="addEventBtn" class="action">Add Calendar Event</button>
-        </div>
-      </section>
-
-      <section class="panel wide">
         <details open>
-          <summary>Timeline</summary>
-          <div id="timeline" class="stack section-gap"></div>
+          <summary>Calendar / Appointments</summary>
+          <div id="calendarList" class="stack section-gap"></div>
+        </details>
+      </section>
+      <section class="panel half">
+        <details open>
+          <summary>Review Date</summary>
+          <label>30-Day Review Date</label>
+          <input id="reviewDateMirror" type="date">
+        </details>
+      </section>
+      <section class="panel half">
+        <details open>
+          <summary>Board ID</summary>
+          <label>Board ID</label>
+          <input id="boardId" type="text" value="angel-jt-family-board">
         </details>
       </section>
     </main>

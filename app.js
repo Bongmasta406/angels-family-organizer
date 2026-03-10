@@ -446,17 +446,26 @@ function addRippleEvents(){
 function initTabs(){
   const tabs = document.querySelectorAll('.tabBtn');
   const sections = document.querySelectorAll('.tabSection');
+
+  function showTab(tab){
+    tabs.forEach(t => t.classList.remove('active'));
+    const activeBtn = document.querySelector(`.tabBtn[data-tab="${tab}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    sections.forEach(sec => sec.classList.add('hidden'));
+    const target = document.getElementById(tab + 'Section');
+    if (target) {
+      target.classList.remove('hidden');
+      target.scrollTop = 0;
+    }
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
   tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      const tab = btn.dataset.tab;
-      sections.forEach(sec => sec.classList.add('hidden'));
-      const target = document.getElementById(tab + 'Section');
-      if (target) target.classList.remove('hidden');
-      window.scrollTo({top:0, behavior:'smooth'});
-    });
+    btn.addEventListener('click', () => showTab(btn.dataset.tab));
   });
+
+  showTab('home');
 }
 
 function initButtons(){
