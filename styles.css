@@ -90,6 +90,10 @@ textarea{min-height:108px;resize:vertical}
   gap:10px;
   flex-wrap:wrap;
 }
+
+.action-row{
+  margin-top:18px;
+}
 .stack{flex-direction:column}
 .action{
   position:relative;
