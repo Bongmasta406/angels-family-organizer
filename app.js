@@ -493,6 +493,34 @@ function initButtons(){
   });
 }
 
+
+function initMenu(){
+  const menuBtn = $('menuBtn');
+  const closeMenuBtn = $('closeMenuBtn');
+  const sideMenu = $('sideMenu');
+  const menuOverlay = $('menuOverlay');
+
+  if (!menuBtn || !closeMenuBtn || !sideMenu || !menuOverlay) return;
+
+  const openMenu = () => {
+    sideMenu.classList.remove('hidden');
+    menuOverlay.classList.remove('hidden');
+  };
+
+  const closeMenu = () => {
+    sideMenu.classList.add('hidden');
+    menuOverlay.classList.add('hidden');
+  };
+
+  menuBtn.addEventListener('click', openMenu);
+  closeMenuBtn.addEventListener('click', closeMenu);
+  menuOverlay.addEventListener('click', closeMenu);
+
+  sideMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+}
+
 function initUI(){
   if(initialized) return;
   initialized = true;
